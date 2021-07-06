@@ -15,12 +15,12 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/wingtech/wt88047/wt88047-vendor.mk)
+$(call inherit-product, vendor/xiaomi/wt88047/wt88047-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-mokee
+    $(LOCAL_PATH)/overlay-lineage
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
@@ -123,7 +123,7 @@ PRODUCT_COPY_FILES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.mokee.touch@1.0-service.wt88047
+    vendor.lineage.touch@1.0-service.wt88047
 
 # USB ID
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -147,4 +147,4 @@ PRODUCT_PACKAGES += \
     libwpa_client
 
 # Inherit the rest from msm8916-common
-$(call inherit-product, device/cyanogen/msm8916-common/msm8916.mk)
+$(call inherit-product, device/xiaomi/wt88047-common/msm8916.mk)

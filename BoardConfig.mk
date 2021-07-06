@@ -18,9 +18,9 @@
 FORCE_32_BIT := true
 
 # Inherit from msm8916-common
-include device/cyanogen/msm8916-common/BoardConfigCommon.mk
+include device/xiaomi/wt88047-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/wingtech/wt88047
+DEVICE_PATH := device/xiaomi/wt88047
 
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
@@ -77,8 +77,8 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_wt88047
 BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DT := true
-TARGET_KERNEL_SOURCE := kernel/wingtech/msm8916
-TARGET_KERNEL_CONFIG := mokee_wt88047_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/wt88047
+TARGET_KERNEL_CONFIG := wt88047_defconfig
 BOARD_KERNEL_CMDLINE += phy-msm-usb.floated_charger_enable=1
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
@@ -104,4 +104,4 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_camera.so
 
 # inherit from the proprietary version
-include vendor/wingtech/wt88047/BoardConfigVendor.mk
+include vendor/xiaomi/wt88047/BoardConfigVendor.mk
