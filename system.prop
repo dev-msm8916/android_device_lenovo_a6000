@@ -27,3 +27,5 @@ persist.radio.ecc_hard_count=1
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
 ril.subscription.types=RUIM
 
+# Set Baseband
+gsm.version.baseband=DPM.1.0.1.c1-00093-M8936FAAAANUZM-S86518C1-V16_xvae27
