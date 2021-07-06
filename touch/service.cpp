@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.mokee.touch@1.0-service.wt88047"
+#define LOG_TAG "vendor.mokee.touch@1.0-service.a6000"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>

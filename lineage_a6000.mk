@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/xiaomi/wt88047/full_wt88047.mk)
+$(call inherit-product, device/lenovo/a6000/full_a6000.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -22,16 +22,16 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := HM2014811,HM2014812,HM2014813,HM2014814,HM2014815,HM2014816,HM2014817,HM2014818,HM2014819,HM2014820,HM2014821,HM2014112,wt88047,wt86047
+TARGET_OTA_ASSERT_DEVICE := Kraft-T,a6000,K30-T,A6000,Kraft-W,Kraft-C,k30t,msm8916,Kraft-A6000,wt86518
 
-PRODUCT_NAME := lineage_wt88047
-BOARD_VENDOR := Xiaomi
-PRODUCT_DEVICE := wt88047
+PRODUCT_NAME := lineage_a6000
+BOARD_VENDOR := Lenovo
+PRODUCT_DEVICE := Kraft-A6000
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-lenovo
 
 # Build fingerprint
-BUILD_FINGERPRINT="Xiaomi/wt88047/wt88047:5.1.1/LMY47V/V9.2.5.0.LHJMIEK:user/release-keys"
-
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="wt88047-user 5.1.1 LMY47V V9.2.5.0.LHJMIEK release-keys"
+    PRIVATE_BUILD_DESC="Kraft-A6000-user 5.0.2 LRX22G Kraft-A6000_S061_160727 release-keys"
+
+BUILD_FINGERPRINT := Lenovo/Kraft-A6000/Kraft-A6000:5.0.2/LRX22G/Kraft-A6000_S061_160727:user/release-keys

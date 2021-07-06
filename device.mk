@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/xiaomi/wt88047/wt88047-vendor.mk)
+$(call inherit-product, vendor/lenovo/a6000/a6000-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
@@ -36,15 +36,24 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdb/QRD_Headset_cal.acdb:system/etc/acdbdata/QRD/QRD_Headset_cal.acdb \
     $(LOCAL_PATH)/audio/acdb/QRD_Speaker_cal.acdb:system/etc/acdbdata/QRD/QRD_Speaker_cal.acdb \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/vendor/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/vendor/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/vendor/etc/mixer_paths_qrd_skui.xml
 
+# On boot audio lineout config
+PRODUCT_PACKAGES += \
+    init.lineout.sh
+
+# Permissions
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/vendor/etc/audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/vendor/etc/a2dp_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:system/vendor/etc/audio_policy_volumes.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/vendor/etc/default_volume_tables.xml \
-    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/vendor/etc/r_submix_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/vendor/etc/usb_audio_policy_configuration.xml
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/vendor/etc/permissions/android.hardware.audio.low_latency.xml
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.audio.sdk.fluencetype=none \
+    persist.vendor.audio.fluence.voicecall=true \
+    persist.vendor.audio.fluence.voicerec=true \
+    persist.vendor.audio.fluence.speaker=false \
+    vendor.audio.offload_wakelock=false
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
@@ -108,14 +117,23 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/vendor/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/vendor/etc/permissions/handheld_core_hardware.xml
 
-# Sensor HAL
+# Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
+    accelcal \
+    AccCalibration \
+    sensord \
     sensors.msm8916
 
+# Permissions
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/_hals.conf:system/vendor/etc/sensors/_hals.conf \
-    $(LOCAL_PATH)/configs/calmodule.cfg:system/vendor/etc/calmodule.cfg
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/vendor/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/vendor/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/vendor/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/vendor/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/vendor/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/vendor/etc/permissions/handheld_core_hardware.xml \
+    $(LOCAL_PATH)/configs/sensors/_hals.conf:system/vendor/etc/sensors/_hals.conf
 
 # Thermal
 PRODUCT_COPY_FILES += \
@@ -123,7 +141,7 @@ PRODUCT_COPY_FILES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.wt88047
+    vendor.lineage.touch@1.0-service.a6000
 
 # USB ID
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -147,4 +165,4 @@ PRODUCT_PACKAGES += \
     libwpa_client
 
 # Inherit the rest from msm8916-common
-$(call inherit-product, device/xiaomi/wt88047-common/msm8916.mk)
+$(call inherit-product, device/lenovo/a6000-common/msm8916.mk)

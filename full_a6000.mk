@@ -17,12 +17,12 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from wt88047 device
-$(call inherit-product, device/xiaomi/wt88047/device.mk)
+# Inherit from a6000 device
+$(call inherit-product, device/lenovo/a6000/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := wt88047
-PRODUCT_NAME := full_wt88047
-PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi 2
-PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_DEVICE := a6000
+PRODUCT_NAME := full_a6000
+PRODUCT_BRAND := Lenovo
+PRODUCT_MODEL := A6000
+PRODUCT_MANUFACTURER := Lenovo
